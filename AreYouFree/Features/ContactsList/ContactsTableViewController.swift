@@ -9,7 +9,7 @@
 import UIKit
 import ContactsUI
 
-class ContactTableViewController: UITableViewController {
+class ContactsTableViewController: UITableViewController {
     private var contactItems = ContactUtil().getContacts()!
     
     override func viewDidLoad() {
@@ -23,7 +23,10 @@ class ContactTableViewController: UITableViewController {
     
     }
 
-    
+}
+
+//MARK: UITableViewDelegate
+extension ContactsTableViewController{
     override func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -36,17 +39,9 @@ class ContactTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell_contact", for: indexPath)
-        
-        if indexPath.row < contactItems.count
-        {
-            let item = contactItems[indexPath.row]
-            cell.textLabel?.text = item.name
-            
-            //let accessory: UITableViewCellAccessoryType = item.done ? .checkmark : .none
-            //cell.accessoryType = accessory
-        }
-        
+        let cellIdentifier = "ContactsTableViewCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactsTableViewCell
+        cell.setup(for: contactItems[indexPath.row].name)
         return cell
     }
     
@@ -64,15 +59,4 @@ class ContactTableViewController: UITableViewController {
         }
         
     }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
-    {
-        if indexPath.row < contactItems.count
-        {
-            contactItems.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .top)
-        }
-    }
-
 }
-

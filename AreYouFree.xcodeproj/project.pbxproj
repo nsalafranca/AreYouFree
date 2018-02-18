@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		03336FB220211218002534EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03336FB120211218002534EF /* AppDelegate.swift */; };
-		03336FB420211218002534EF /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03336FB320211218002534EF /* ContactTableViewController.swift */; };
+		03336FB420211218002534EF /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03336FB320211218002534EF /* ContactsTableViewController.swift */; };
 		03336FB720211218002534EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03336FB520211218002534EF /* Main.storyboard */; };
 		03336FB920211218002534EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03336FB820211218002534EF /* Assets.xcassets */; };
 		03336FBC20211218002534EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03336FBA20211218002534EF /* LaunchScreen.storyboard */; };
 		03336FC720211218002534EF /* AreYouFreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03336FC620211218002534EF /* AreYouFreeTests.swift */; };
 		03336FD220211218002534EF /* AreYouFreeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03336FD120211218002534EF /* AreYouFreeUITests.swift */; };
+		B48E99F520391F770045F5A9 /* ContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B48E99F420391F770045F5A9 /* ContactsTableViewCell.xib */; };
+		B48E99F7203920C10045F5A9 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E99F6203920C10045F5A9 /* ContactsTableViewCell.swift */; };
 		B4BA97342030FE830046E8BD /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BA97332030FE830046E8BD /* Contact.swift */; };
 		B4BA97362030FEA30046E8BD /* ContactUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BA97352030FEA30046E8BD /* ContactUtil.swift */; };
 /* End PBXBuildFile section */
@@ -38,7 +40,7 @@
 /* Begin PBXFileReference section */
 		03336FAE20211218002534EF /* AreYouFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreYouFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03336FB120211218002534EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03336FB320211218002534EF /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
+		03336FB320211218002534EF /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		03336FB620211218002534EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03336FB820211218002534EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03336FBB20211218002534EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		03336FCD20211218002534EF /* AreYouFreeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AreYouFreeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03336FD120211218002534EF /* AreYouFreeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouFreeUITests.swift; sourceTree = "<group>"; };
 		03336FD320211218002534EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B48E99F420391F770045F5A9 /* ContactsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsTableViewCell.xib; sourceTree = "<group>"; };
+		B48E99F6203920C10045F5A9 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		B4BA97332030FE830046E8BD /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		B4BA97352030FEA30046E8BD /* ContactUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,18 +145,20 @@
 		B48E99F1203908DF0045F5A9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				B48E99F2203908F00045F5A9 /* ContactList */,
+				B48E99F2203908F00045F5A9 /* ContactsList */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		B48E99F2203908F00045F5A9 /* ContactList */ = {
+		B48E99F2203908F00045F5A9 /* ContactsList */ = {
 			isa = PBXGroup;
 			children = (
 				B4BA97352030FEA30046E8BD /* ContactUtil.swift */,
-				03336FB320211218002534EF /* ContactTableViewController.swift */,
+				03336FB320211218002534EF /* ContactsTableViewController.swift */,
+				B48E99F420391F770045F5A9 /* ContactsTableViewCell.xib */,
+				B48E99F6203920C10045F5A9 /* ContactsTableViewCell.swift */,
 			);
-			path = ContactList;
+			path = ContactsList;
 			sourceTree = "<group>";
 		};
 		B48E99F320390ACA0045F5A9 /* Assets */ = {
@@ -270,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B48E99F520391F770045F5A9 /* ContactsTableViewCell.xib in Resources */,
 				03336FBC20211218002534EF /* LaunchScreen.storyboard in Resources */,
 				03336FB920211218002534EF /* Assets.xcassets in Resources */,
 				03336FB720211218002534EF /* Main.storyboard in Resources */,
@@ -298,7 +305,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4BA97342030FE830046E8BD /* Contact.swift in Sources */,
-				03336FB420211218002534EF /* ContactTableViewController.swift in Sources */,
+				03336FB420211218002534EF /* ContactsTableViewController.swift in Sources */,
+				B48E99F7203920C10045F5A9 /* ContactsTableViewCell.swift in Sources */,
 				B4BA97362030FEA30046E8BD /* ContactUtil.swift in Sources */,
 				03336FB220211218002534EF /* AppDelegate.swift in Sources */,
 			);
