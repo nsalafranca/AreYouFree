@@ -9,7 +9,7 @@
 import UIKit
 import ContactsUI
 
-class ViewController: UITableViewController {
+class ContactTableViewController: UITableViewController {
     private var contactItems = ContactUtil().getContacts()!
     
     override func viewDidLoad() {

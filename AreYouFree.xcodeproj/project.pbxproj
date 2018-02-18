@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03336FB220211218002534EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03336FB120211218002534EF /* AppDelegate.swift */; };
-		03336FB420211218002534EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03336FB320211218002534EF /* ViewController.swift */; };
+		03336FB420211218002534EF /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03336FB320211218002534EF /* ContactTableViewController.swift */; };
 		03336FB720211218002534EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03336FB520211218002534EF /* Main.storyboard */; };
 		03336FB920211218002534EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03336FB820211218002534EF /* Assets.xcassets */; };
 		03336FBC20211218002534EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03336FBA20211218002534EF /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		03336FAE20211218002534EF /* AreYouFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreYouFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03336FB120211218002534EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03336FB320211218002534EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		03336FB320211218002534EF /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		03336FB620211218002534EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03336FB820211218002534EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03336FBB20211218002534EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,12 +101,11 @@
 		03336FB020211218002534EF /* AreYouFree */ = {
 			isa = PBXGroup;
 			children = (
+				B48E99F1203908DF0045F5A9 /* Features */,
+				B48E99F0203908A60045F5A9 /* DataModel */,
+				B48E99F320390ACA0045F5A9 /* Assets */,
 				03336FB120211218002534EF /* AppDelegate.swift */,
-				03336FB320211218002534EF /* ViewController.swift */,
-				B4BA97352030FEA30046E8BD /* ContactUtil.swift */,
-				B4BA97332030FE830046E8BD /* Contact.swift */,
 				03336FB520211218002534EF /* Main.storyboard */,
-				03336FB820211218002534EF /* Assets.xcassets */,
 				03336FBA20211218002534EF /* LaunchScreen.storyboard */,
 				03336FBD20211218002534EF /* Info.plist */,
 			);
@@ -129,6 +128,39 @@
 				03336FD320211218002534EF /* Info.plist */,
 			);
 			path = AreYouFreeUITests;
+			sourceTree = "<group>";
+		};
+		B48E99F0203908A60045F5A9 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4BA97332030FE830046E8BD /* Contact.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		B48E99F1203908DF0045F5A9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B48E99F2203908F00045F5A9 /* ContactList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B48E99F2203908F00045F5A9 /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+				B4BA97352030FEA30046E8BD /* ContactUtil.swift */,
+				03336FB320211218002534EF /* ContactTableViewController.swift */,
+			);
+			path = ContactList;
+			sourceTree = "<group>";
+		};
+		B48E99F320390ACA0045F5A9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				03336FB820211218002534EF /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4BA97342030FE830046E8BD /* Contact.swift in Sources */,
-				03336FB420211218002534EF /* ViewController.swift in Sources */,
+				03336FB420211218002534EF /* ContactTableViewController.swift in Sources */,
 				B4BA97362030FEA30046E8BD /* ContactUtil.swift in Sources */,
 				03336FB220211218002534EF /* AppDelegate.swift in Sources */,
 			);
