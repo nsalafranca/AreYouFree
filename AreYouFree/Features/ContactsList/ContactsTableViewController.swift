@@ -15,6 +15,7 @@ class ContactsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        tableView.register(UINib.init(nibName: "ContactsTableViewCell", bundle: nil), forCellReuseIdentifier: ContactsTableViewCell.reuseIdentifier())
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +27,7 @@ class ContactsTableViewController: UITableViewController {
 }
 
 //MARK: UITableViewDelegate
-extension ContactsTableViewController{
+extension ContactsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
