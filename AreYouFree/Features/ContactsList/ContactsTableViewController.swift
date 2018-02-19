@@ -16,6 +16,7 @@ class ContactsTableViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.register(UINib.init(nibName: "ContactsTableViewCell", bundle: nil), forCellReuseIdentifier: ContactsTableViewCell.reuseIdentifier())
+        tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +43,7 @@ extension ContactsTableViewController {
     {
         let cellIdentifier = "ContactsTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactsTableViewCell
-        cell.setup(for: contactItems[indexPath.row].name)
+        cell.setup(for: contactItems[indexPath.row])
         return cell
     }
     
@@ -55,9 +56,13 @@ extension ContactsTableViewController {
         {
             let item = contactItems[indexPath.row]
             item.name = "clicked"
-            
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 60
     }
 }

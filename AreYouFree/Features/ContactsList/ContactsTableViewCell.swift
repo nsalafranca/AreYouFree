@@ -11,6 +11,8 @@ import UIKit
 class ContactsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +25,10 @@ class ContactsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setup(for name: String){
-        nameLabel.text = name
+    func setup(for contact: Contact){
+        nameLabel.text = contact.name
+        phoneLabel.text = contact.number
+        statusLabel.text = "unknown"
     }
 
 }
