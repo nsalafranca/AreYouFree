@@ -10,23 +10,8 @@ import Foundation
 import Contacts
 
 class ContactUtil{
-    var objects = [CNContact]()
     
-    func getContacts() -> [Contact]?{
-        let store = CNContactStore()
-        if(CNContactStore.authorizationStatus(for: .contacts) == .notDetermined){
-            store.requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: Error?) in
-                if(authorized){
-                    print("just authorized for contacts!!!")
-                }
-            })
-        }else if(CNContactStore.authorizationStatus(for: .contacts) == .authorized){
-            return convert(self.retrieveContactsWith(store))
-        }
-        return nil
-    }
-    
-    func retrieveContactsWith(_ store: CNContactStore) -> [CNContact]{
+    func retrieveContactsWith(_ store: CNContactStore) -> [Contact]{
         var results: [CNContact] = []
         let contactStore = CNContactStore()
         let keysToFetch: [CNKeyDescriptor] = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey as CNKeyDescriptor]
@@ -37,10 +22,10 @@ class ContactUtil{
         } catch {
             print(error)
         }
-        return results
+        return convertToContacts(results)
     }
     
-    private func convert(_ cnContacts: [CNContact]) -> [Contact]{
+    private func convertToContacts(_ cnContacts: [CNContact]) -> [Contact]{
         var convertedContacts : [Contact] = []
         for cnContact in cnContacts{
             convertedContacts.append(Contact(name: cnContact.familyName, number: cnContact.phoneNumbers[0].value.stringValue))

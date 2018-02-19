@@ -10,19 +10,37 @@ import UIKit
 import ContactsUI
 
 class ContactsTableViewController: UITableViewController {
-    private var contactItems = ContactUtil().getContacts()!
+    @IBOutlet var contactsTableView: UITableView!
+    private var contactItems: [Contact] = [Contact]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.register(UINib.init(nibName: "ContactsTableViewCell", bundle: nil), forCellReuseIdentifier: ContactsTableViewCell.reuseIdentifier())
         tableView.tableFooterView = UIView()
+        initContacts()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     
+    }
+    
+    private func initContacts(){
+        let store = CNContactStore()
+        store.requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: Error?) in
+            if(authorized){
+                self.contactItems = ContactUtil().retrieveContactsWith(store)
+                DispatchQueue.main.async{
+                    self.contactsTableView.reloadData()
+                }
+            }else{
+                let alert = UIAlertController(title: "Contacts Permission", message: "For this app to function, please go into your settings and give this app permission to read your contacts.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        })
     }
 
 }
