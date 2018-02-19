@@ -11,7 +11,7 @@ import Contacts
 
 class ContactUtil{
     var objects = [CNContact]()
-
+    
     func getContacts() -> [Contact]?{
         let store = CNContactStore()
         if(CNContactStore.authorizationStatus(for: .contacts) == .notDetermined){
@@ -29,17 +29,12 @@ class ContactUtil{
     func retrieveContactsWith(_ store: CNContactStore) -> [CNContact]{
         var results: [CNContact] = []
         let contactStore = CNContactStore()
-        let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName)]
-        var allContainers: [CNContainer] = []
-        do{
-            allContainers = try contactStore.containers(matching: nil)
-            for container in allContainers {
-                let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
-                let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch:keysToFetch)
-                results.append(contentsOf: containerResults)
-            }
-            print("contacts: ", results)
-        }catch{
+        let keysToFetch: [CNKeyDescriptor] = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey as CNKeyDescriptor]
+        do {
+            let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: contactStore.defaultContainerIdentifier())
+            let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch:(keysToFetch))
+            results.append(contentsOf: containerResults)
+        } catch {
             print(error)
         }
         return results
@@ -48,9 +43,9 @@ class ContactUtil{
     private func convert(_ cnContacts: [CNContact]) -> [Contact]{
         var convertedContacts : [Contact] = []
         for cnContact in cnContacts{
-            convertedContacts.append(Contact(name: cnContact.familyName, number: "falsified num"))
+            convertedContacts.append(Contact(name: cnContact.familyName, number: cnContact.phoneNumbers[0].value.stringValue))
         }
         return convertedContacts
     }
- 
+    
 }
